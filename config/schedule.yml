@@ -1,0 +1,10 @@
+CombinedWebCallJob:
+  cron: "*/5 * * * *"
+  class: "CombinedWebCallJob"
+  queue: default
+
+RemoveStaleShareStationsJob:
+  cron: "0 0 * * 0"
+  class: "RemoveStaleShareStationsJob"
+  queue: default
+
