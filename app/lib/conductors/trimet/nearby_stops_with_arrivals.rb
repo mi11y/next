@@ -52,7 +52,7 @@ module Conductors
             def create_arrival(arrival)
                 result = {}
                 result[:route]          = get_route(arrival)
-                result[:daparted]       = departed?(arrival) if arrival[:departed].present?
+                result[:departed]       = departed?(arrival) if arrival[:departed].present?
                 result[:scheduled]      = get_scheduled_arrival(arrival) if arrival[:scheduled].present?
                 result[:est_arrival]    = get_estimated_arrival(arrival) if arrival[:estimated].present?
                 result[:full_sign]      = get_full_sign(arrival) if arrival[:fullSign].present?
