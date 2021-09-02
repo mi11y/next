@@ -3,7 +3,7 @@ module Conductors
     class NearbyStations
       attr_accessor :result
 
-      def initialize(origin = nil, max_distance_miles = 0.19)
+      def initialize(origin: nil, max_distance_miles: 0.19)
         @max_distance_miles = max_distance_miles
         @origin = origin || { lat: "45.5189108389813", lon: "-122.67928167332214" }
         @calculator = Calculators::Distance.new(@origin)
