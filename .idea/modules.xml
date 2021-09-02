@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/next.iml" filepath="$PROJECT_DIR$/.idea/next.iml" />
+      <module fileurl="file://$USER_HOME$/pi/transit-python/.idea/transit-python.iml" filepath="$USER_HOME$/pi/transit-python/.idea/transit-python.iml" />
     </modules>
   </component>
 </project>
