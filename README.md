@@ -56,6 +56,7 @@ following environment variables:
 ```
 export DB_USERNAME=# Postgresql Databse Username
 export DB_PASSWORD=# Postgresql Password
+export REDIS_URL=# url to your redis, i.e., redis://localhost:6379/1
 export TRIMET_API_KEY=# Can be obtained from Trimet's Website
 ```
 

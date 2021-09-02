@@ -118,5 +118,4 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  ENV["REDISTOGO_URL"] = 'redis://redistogo:yourinfohere@something.redistogo.com:1234/'
 end
