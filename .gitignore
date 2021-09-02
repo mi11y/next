@@ -1,3 +1,4 @@
 tmp/
 log/
 coverage/
+node_modules/
