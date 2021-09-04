@@ -11,6 +11,7 @@ Brand.create([
     {name: 'Bird'},
     {name: 'Spin'},
     {name: 'Lime'},
+    {name: 'Bolt'},
     {name: 'Biketown'},
     {name: 'Trimet'}
 ])

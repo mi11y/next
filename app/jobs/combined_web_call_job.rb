@@ -15,6 +15,10 @@ class CombinedWebCallJob
     spin_count = Conductors::Spin.new.run.create_or_update_count
     puts "[CombinedWebCallJob][SpinConductor][ConductorEnd]"
 
+    puts "[CombinedWebCallJob][BoltConductor][ConductorStart]"
+    bolt_count = Conductors::Bolt.new.run.create_or_update_count
+    puts "[CombinedWebCallJob][BoltConductor][ConductorEnd]"
+
     puts "[CombinedWebCallJob][BiketownConductor][ConductorStart]"
     biketown_count = Conductors::Biketown::Bikes.new.run.create_or_update_count
     puts "[CombinedWebCallJob][BiketownConductor][ConductorEnd]"
@@ -51,6 +55,12 @@ class CombinedWebCallJob
       puts "[CombinedWebCallJob][Conductors::SpinShare::RemoveOldSpinShares][ConductorStart]"
       Conductors::SpinShare::RemoveOldSpinShares.new.run
       puts "[CombinedWebCallJob][Conductors::SpinShare::RemoveOldSpinShares][ConductorEnd]"
+    end
+
+    if bolt_count > 0
+      puts "[CombinedWebCallJob][Conductors::BoltShare::RemoveOldBoltShares][ConductorStart]"
+      Conductors::BoltShare::RemoveOldBoltShares.new.run
+      puts "[CombinedWebCallJob][Conductors::BoltShare::RemoveOldBoltShares][ConductorEnd]"
     end
 
     if biketown_count > 0
