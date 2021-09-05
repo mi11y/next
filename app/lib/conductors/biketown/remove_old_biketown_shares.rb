@@ -7,9 +7,8 @@ module Conductors
         "RemoveOldBiketownShares"
       end
 
-      def query
-        brand = Brand.find_by(name: 'Biketown')
-        Share.where(["brand_id = ? AND updated_at < ?", brand, @max_age_in_minutes.minutes.ago])
+      def brand
+        Brand.find_by(name: 'Biketown')
       end
     end
   end

@@ -7,9 +7,8 @@ module Conductors
         "RemoveOldBirdShares"
       end
 
-      def query
-        brand = Brand.find_by(name: 'Bird')
-        Share.where(["brand_id = ? AND updated_at < ?", brand, @max_age_in_minutes.minutes.ago])
+      def brand
+        Brand.find_by(name: 'Bird')
       end
     end
   end
