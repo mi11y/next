@@ -15,7 +15,7 @@ module Conductors
             raise NotImplementedError
         end
 
-        def query
+        def brand
             raise NotImplementedError
         end
 
@@ -24,6 +24,12 @@ module Conductors
             puts "[#{cleaner_name}] About to delete count=#{@targets.count} records"
             @targets.destroy_all
             puts "[#{cleaner_name}] Done"
+        end
+
+        private
+
+        def query
+            Share.where(["brand_id = ? AND updated_at < ?", brand, @max_age_in_minutes.minutes.ago])
         end
     end
 end
