@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+defaults:
+  run:
+    working-directory: src/
+
 jobs:
   rspec-tests:
     # Containers must run in Linux based operating systems
