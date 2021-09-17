@@ -9,7 +9,7 @@ module Conductors
     end
 
     def run
-      return {
+      {
         bike_shares: Conductors::NearbyShares.new(origin: origin,
                                                   max_distance_miles: max_distance_miles).run.result,
         trimet_stops: Conductors::Trimet::NearbyStopsWithArrivals.new(origin: origin).run.response,

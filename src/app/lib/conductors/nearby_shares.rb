@@ -29,13 +29,10 @@ module Conductors
           @result[matching_brand.name.to_sym] = []
         end
         if distance <= @max_distance_miles
-          @result[matching_brand.name.to_sym] << {
-            distance: (distance * 5280).ceil,
-            lat: share.lat,
-            lon: share.lon,
-            brand: matching_brand.name,
-            bike_uuid: share.bike_uuid
-          }
+          @result[matching_brand.name.to_sym] << Presenters::SharePresenter.
+            to_hash(distance: distance,
+                    brand: matching_brand,
+                    share: share)
         end
       end
       self
