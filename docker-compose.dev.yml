@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
+    ports:
+      - '5432:5432'
+  redis:
+    image: 'redis:5-alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis:/data'
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid &&
+      bundle install &&
+      rails db:environment:set RAILS_ENV=development &&
+      rails db:migrate --trace &&
+      rails db:reset &&
+      sleep infinity"
+    volumes:
+      - .:/next
+      - ./src:/src
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      RAILS_ENV: development
+      REDIS_URL: redis://redis:6379/0
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
+      TRIMET_API_KEY: $TRIMET_API_KEY
+volumes:
+  redis:
+  postgres:
