@@ -31,7 +31,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - postgres
       - redis
     environment:
       RAILS_ENV: development
